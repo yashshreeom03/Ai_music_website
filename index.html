@@ -29,9 +29,43 @@
 </head>
 
 <body>
+
+    <div class="custom-cursor">
+        <div style="left: 108px; top: 1048px;">
+            <span></span>
+            <svg class="custom-cursor__img" width="119" height="45" viewBox="0 0 119 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_1130_4828)">
+                    <path d="M10.9627 22.9931L12.2909 16.1687C12.603 14.5633 14.1573 13.0107 15.7632 12.7011L21.5757 11.5778C23.181 11.2681 23.2911 10.4355 21.8214 9.719L2.95694 0.527836C1.48667 -0.188687 0.764833 0.470432 1.34397 1.99934L9.34853 23.1305C9.92766 24.6594 10.6501 24.5984 10.9627 22.9931Z" fill="url(#paint0_linear_1130_4828)"></path>
+                </g>
+                <rect x="16" y="16.2383" width="103" height="28" rx="4" fill="url(#paint1_linear_1130_4828)"></rect>
+                <defs>
+                    <linearGradient id="paint0_linear_1130_4828" x1="-58.0002" y1="-33.2617" x2="25.4638" y2="2.23919" gradientUnits="userSpaceOnUse">
+                        <stop offset="1" stop-color="#F49959"></stop>
+                    </linearGradient>
+                    <linearGradient id="paint1_linear_1130_4828" x1="-53.2743" y1="34.7382" x2="110.992" y2="27.6664" gradientUnits="userSpaceOnUse">
+                        <stop offset="1" stop-color="#F49959"></stop>
+                    </linearGradient>
+                    <clipPath id="clip0_1130_4828">
+                        <rect width="24" height="24" fill="white" transform="translate(0 0.238281)"></rect>
+                    </clipPath>
+                </defs>
+            </svg>
+        </div>
+        <div style="left: 108px; top: 1048px;"></div>
+    </div>
+    
+
         <!-- Start Loader Area -->
-        <div class="tl-preloader">
-			<div class="loader"></div>
+        <div class="loader">
+            <div class="loader-container">
+                <div class="ring"></div> 
+                <div class="circle">
+                    <div class="text">
+                        <div class="percent" id="percent">0%</div>
+                        <div class="label">Processing...</div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- End Loader Area -->
         <!-- Start Grid Lines -->
@@ -69,7 +103,7 @@
                         <nav class="main-menu flex-center">
                             <ul>
                                 <li class="menu-item"><a href="#hero-section">Generator</a></li>
-                                <li class="menu-item"><a href="#">Discover</a></li>
+                                <li class="menu-item"><a href="#discover-section">Discover</a></li>
                                 <li class="menu-item"><a href="#">Features</a></li>
                                 <li class="menu-item"><a href="#">Testimonials</a></li>
                                 <li class="menu-item"><a href="#">Pricing</a></li>
@@ -96,17 +130,19 @@
                     <div class="col-lg-12">
                         <!-- Hero Content -->
                         <div class="hero-content">
-                                <h1 class="mb-60">Song <span class="gradient-text">Al Generator</span> Free Online</h1>
-                                <p class="mx-auto mb-60">
-                                    Turn your creative ideas into fully realized songs with our Song Al generator enjoy a free trial of text to music. You can generate music quickly and easily, songs more simplified-Create, Listen and unique song. 
-                                </p>
+                            <h1 class="mb-60">Song <span class="gradient-text">Al Generator</span> Free Online</h1>
+                            <p class="mx-auto mb-60">
+                                Turn your creative ideas into fully realized songs with our Song Al generator enjoy a free trial of text to music. You can generate music quickly and easily, songs more simplified-Create, Listen and unique song. 
+                            </p>
                             <div class="song-generate-wrapper position-relative">
-                                <div class="song-generate-box">
-                                    <input type="text" placeholder="Describe the song you want to make...">
-                                    <hr>
-                                    <div class="song-generate-btn flex-center flex-wrap">
-                                        <a href="#" class="primary-btn secondary-btn">Inspire Me</a>
-                                        <a href="#" class="primary-btn">Generate Song Ai</a>
+                                <div class="generate-box-container">
+                                    <div class="song-generate-box">
+                                        <textarea id="myTextArea" placeholder="Describe the song you want to make..."></textarea>
+                                        <hr>
+                                        <div class="song-generate-btn flex-center flex-wrap">
+                                            <a href="#" class="primary-btn secondary-btn">Inspire Me</a>
+                                            <a href="#" class="primary-btn">Generate Song Ai</a>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="playing">
@@ -152,12 +188,188 @@
                                     <div class="rect5"></div>
                                   </div>
                             </div>
+                            <div class="hero-img-main">
+                                <img class="hero-img" src="assets/images/hero/heroai.png" alt="heroai">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- End Hero Section -->
+
+        <!-- Start Discover Section -->
+        <section class="discover-section pb-100" id="discover-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title mb-60">
+                            <h2 class="mb-60">Discover the power of Song <span class="gradient-text">AI</span></h2>
+                            <p>Explore how Song Al is revolutionizing the song creation process. Discover the latest trends, insights, and updates in Song Al Generator.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="row discover-music-wrapper">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="discover-music-box">
+                                    <div class="discover-music-img">
+                                        <img src="assets/images/discover/discover-music-1.png" alt="">
+                                        <div class="play-button">
+                                            <i class="fas fa-play"></i>
+                                          </div>
+                                    </div>
+                                    <div>
+                                        <h6>Chill Vibes</h6>
+                                        <ul class="music-tag-wrapper flex-wrap flex-center">
+                                            <li class="music-tag-box">dark</li>
+                                            <li class="music-tag-box">darkwave</li>
+                                            <li class="music-tag-box">Synth-wave</li>
+                                            <li class="music-tag-box">ethereal</li>
+                                            <li class="music-tag-box">dream-wave</li>
+                                            <li class="music-tag-box">techno</li>
+                                            <li class="music-tag-box">whisper</li>
+                                            <li class="music-tag-box">dark</li>
+                                        </ul>
+                                        <div class="time-date-box flex-wrap flex-center">
+                                            <span><i class="fal fa-calendar-alt"></i> 2025-04-17</span>
+                                            <span><i class="fal fa-clock"></i> 4:00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="discover-music-box">
+                                    <div class="discover-music-img">
+                                        <img src="assets/images/discover/discover-music-2.png" alt="">
+                                        <div class="play-button">
+                                            <i class="fas fa-play"></i>
+                                          </div>
+                                    </div>
+                                    <div>
+                                        <h6>Groove State</h6>
+                                        <ul class="music-tag-wrapper flex-wrap flex-center">
+                                            <li class="music-tag-box">techno</li>
+                                            <li class="music-tag-box">whisper</li>
+                                            <li class="music-tag-box">Synth-wave</li>
+                                            <li class="music-tag-box">dark</li>
+                                            <li class="music-tag-box">dream-wave</li>
+                                        </ul>
+                                        <div class="time-date-box flex-wrap flex-center">
+                                            <span><i class="fal fa-calendar-alt"></i> 2025-04-17</span>
+                                            <span><i class="fal fa-clock"></i> 4:00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="col-lg-4 col-md-6">
+                                <div class="discover-music-box">
+                                    <div class="discover-music-img">
+                                        <img src="assets/images/discover/discover-music-3.png" alt="">
+                                        <div class="play-button">
+                                            <i class="fas fa-play"></i>
+                                          </div>
+                                    </div>
+                                    <div>
+                                        <h6>Euphoria Beat</h6>
+                                        <ul class="music-tag-wrapper flex-wrap flex-center">
+                                            <li class="music-tag-box">dark</li>
+                                            <li class="music-tag-box">darkwave</li>
+                                            <li class="music-tag-box">Synth-wave</li>
+                                            <li class="music-tag-box">ethereal</li>
+                                            <li class="music-tag-box">dream-wave</li>
+                                            <li class="music-tag-box">techno</li>
+                                            <li class="music-tag-box">whisper</li>
+                                            <li class="music-tag-box">dark</li>
+                                        </ul>
+                                        <div class="time-date-box flex-wrap flex-center">
+                                            <span><i class="fal fa-calendar-alt"></i> 2025-04-17</span>
+                                            <span><i class="fal fa-clock"></i> 4:00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="discover-music-box">
+                                    <div class="discover-music-img">
+                                        <img src="assets/images/discover/discover-music-4.png" alt="">
+                                        <div class="play-button">
+                                            <i class="fas fa-play"></i>
+                                          </div>
+                                    </div>
+                                    <div>
+                                        <h6>Rhythm Rush</h6>
+                                        <ul class="music-tag-wrapper flex-wrap flex-center">
+                                            <li class="music-tag-box">dark</li>
+                                            <li class="music-tag-box">darkwave</li>
+                                            <li class="music-tag-box">whisper</li>
+                                            <li class="music-tag-box">ethereal</li>
+                                            <li class="music-tag-box">dream-wave</li>
+                                        </ul>
+                                        <div class="time-date-box flex-wrap flex-center">
+                                            <span><i class="fal fa-calendar-alt"></i> 2025-04-17</span>
+                                            <span><i class="fal fa-clock"></i> 4:00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="discover-music-box">
+                                    <div class="discover-music-img">
+                                        <img src="assets/images/discover/discover-music-5.png" alt="">
+                                        <div class="play-button">
+                                            <i class="fas fa-play"></i>
+                                          </div>
+                                    </div>
+                                    <div>
+                                        <h6>Energy Surge</h6>
+                                        <ul class="music-tag-wrapper flex-wrap flex-center">
+                                            <li class="music-tag-box">dark</li>
+                                            <li class="music-tag-box">darkwave</li>
+                                            <li class="music-tag-box">Synth-wave</li>
+                                            <li class="music-tag-box">dreamwave</li>
+                                            <li class="music-tag-box">techno</li>
+                                            <li class="music-tag-box">whisper</li>
+                                            <li class="music-tag-box">dark</li>
+                                        </ul>
+                                        <div class="time-date-box flex-wrap flex-center">
+                                            <span><i class="fal fa-calendar-alt"></i> 2025-04-17</span>
+                                            <span><i class="fal fa-clock"></i> 4:00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="discover-music-box">
+                                    <div class="discover-music-img">
+                                        <img src="assets/images/discover/discover-music-6.png" alt="">
+                                        <div class="play-button">
+                                            <i class="fas fa-play"></i>
+                                          </div>
+                                    </div>
+                                    <div>
+                                        <h6>Vibe Check</h6>
+                                        <ul class="music-tag-wrapper flex-wrap flex-center">
+                                            <li class="music-tag-box">dark</li>
+                                            <li class="music-tag-box">darkwave</li>
+                                            <li class="music-tag-box">ethereal</li>
+                                            <li class="music-tag-box">techno</li>
+                                            <li class="music-tag-box">whisper</li>
+                                            <li class="music-tag-box">dark</li>
+                                        </ul>
+                                        <div class="time-date-box flex-wrap flex-center">
+                                            <span><i class="fal fa-calendar-alt"></i> 2025-04-17</span>
+                                            <span><i class="fal fa-clock"></i> 4:00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Discover Section -->
+
 
         <!-- Start Footer -->
 
@@ -167,10 +379,12 @@
 
     <!-- jQuery -->
     <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <!-- Smooth Scroll -->
+    <script src="assets/js/smooth-scroll.js"></script>
     <!-- Bootstrap -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <!-- Wow -->
-    <script src="assets/js/wow.js"></script>
+    <!-- <script src="assets/js/wow.js"></script> -->
     <!-- Slick -->
     <script src="assets/js/slick.min.js"></script>
     <!-- Custom Script -->
