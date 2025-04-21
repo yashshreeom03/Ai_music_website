@@ -20,6 +20,9 @@ Version: 1.0
   02. Header
   03. Sections
       ## Hero Section
+      ## Discover Section
+      ## About Us Section
+      ## Features Section
       
 ----------------------------------------------------------------------*/
 
@@ -139,6 +142,10 @@ body {
   margin-bottom: 60px;
 }
 
+.mb-40{
+  margin-bottom: 40px;
+}
+
 .no-scroll {
 	overflow: hidden;
 }
@@ -212,7 +219,7 @@ body {
   right: -1px;
   width: 2px;
   height: 60px;
-  background: linear-gradient( rgb(0, 0, 0) 0%, rgb(245, 246, 247) 100%);
+  background: linear-gradient( rgb(0, 0, 0) 0%, var(--secondary-color) 100%);
   border-radius: 1px;
   opacity: 0.8;
 }
@@ -290,6 +297,18 @@ h2 {
 .h3,
 h3 {
   font-size: 26px;
+}
+
+.h4,
+h4{
+  font-size: 26px;
+}
+
+.h5,
+h5{
+  font-size: 22px;
+  line-height: 25px;
+  font-weight: 500;
 }
 
 .h6,
@@ -780,6 +799,7 @@ textarea:focus-visible{
   border-radius: var(--border-radius5);
   padding: 8px;
   font-size: 13px;
+  color: rgba(255, 255, 255, 0.514);
 }
 
 .time-date-box{
@@ -790,6 +810,314 @@ textarea:focus-visible{
   color: #949494;
   font-size: 14px;
 }
+
+/*---========================
+  3.3 About Us Section
+=======================----*/
+.about-section .playing{
+  position: relative;
+  top: 0;
+  margin-bottom: 30px;
+}
+
+.about-wrapper {
+  position: relative;
+}
+
+.about-img {
+  display: block;
+  margin-left: auto;
+  max-width: 100%;
+  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+.about-box {
+  position: absolute;
+  background: linear-gradient(180deg, #0F4337 0%, rgba(0, 0, 0, 0) 100%);
+  border-radius: var(--border-radius10);
+}
+
+.lyrics-box{
+  padding: 20px 15px;
+  top: 20px;
+  left: 20%;
+  width: 119px;
+  text-align: center;
+}
+
+.lyrics-box h4 {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.lyrics-box ul li ,
+.generate-line-1,
+.generate-line-2{
+  height: 3px;
+  background: #769586;
+  margin-top: 18px;
+  border-radius: 4px;
+  max-width: 100%;
+}
+
+.lyrics-line-1,
+.lyrics-line-3{
+  width: 85%;
+  margin: auto;
+ 
+}
+
+.genre-box {
+  position: absolute;
+  background: #0D3F33;
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.classical {
+  top: 150px;
+  left: 22%;
+}
+
+.pop {
+  top: 195px;
+  left: 30%;
+}
+
+.rock {
+  top: 240px;
+  left: 25%;
+}
+
+.arrow-path {
+  position: absolute;
+}
+
+.create-arrow{
+  top: 121px;
+  left: 16%;
+  width: 211px;
+  aspect-ratio: 1 / 1;
+}
+
+.about-sub-title{
+  display: block;
+}
+
+.about-details p,
+.features-box p{
+  line-height: 28px;
+  font-size: 16px;
+}
+
+.about-generate-box{
+  width: 215px;
+  top: 45px;
+  padding: 20px;
+  left: 2%;
+}
+
+.about-generate-box h4{
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.song-generate-like{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.generate-line-1,
+.generate-line-2{
+  display: block;
+  margin: 0;
+  
+}
+
+.generate-line-1{
+  animation: lineGrow1 2s linear infinite;
+  margin-bottom: 8px;
+}
+
+.generate-line-2{
+  animation: lineGrow2 2s linear infinite;
+}
+
+@keyframes lineGrow1 {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+
+@keyframes lineGrow2 {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 40%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+
+.processing-box{
+  width: 178px;
+  padding: 13px;
+  top: 284px;
+  left: 10%;
+}
+
+.processing-box h4{
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.about-generate-arrow{
+  top: 132px;
+  left: 15%;
+}
+
+.progress-wrapper{
+  gap: 5px;
+}
+
+.progress-wrapper span{
+  font-size: 12px;
+}
+
+.progress {
+  height: 5px;
+  background-color: #769586;
+  border-radius: 35px;
+  width: 100%;
+}
+
+.progress-bar {
+  background-color: #00FF37;
+  border-radius: 35px;
+}
+
+.saved-songs-box{
+  width: 170px;
+  padding: 16px;
+  top: 40px;
+  left: 8%;
+}
+
+.saved-songs-box h4{
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 9px;
+}
+
+.saved-songs-name{
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 11px;
+}
+
+.saved-songs-icon{
+  width: 23px;
+  aspect-ratio: 1 /1;
+  border-radius: 2px;
+  background-color: #769586;
+  justify-content: center;
+}
+
+.saved-songs-arrow{
+  top: 173px;
+  left: 16%;
+}
+
+/*---========================
+  3.4 Features Section
+=======================----*/
+.features-row{
+  gap: 25px 0px;
+}
+
+.features-box{
+  padding: 30px;
+  background: #0a1c26;
+  border-radius: var(--border-radius5);
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.features-icon-box{
+  width: 44px;
+  background: linear-gradient(90deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+  aspect-ratio: 1 / 1;
+  border-radius: var(--border-radius5);
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.features-box h5{
+  margin-bottom: 30px;
+}
+
+.features-box:hover{
+  background: #000000b0;
+  backdrop-filter: blur(10px);
+}
+
+.features-box:hover p{
+  color: var(--custom-white);
+}
+
+.features-box::before,
+.features-box::after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  background: linear-gradient(45deg, #4ce4ff, #1ABDB6, #0fcef0fb,#46cec7, #74dad3, #51d9f1, 
+    #11d1f3, #56f5ed,#2edaf8, #03e9da);
+  background-size: 400%;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  animation: steam 50s linear infinite;
+}
+
+.features-box:hover::before,
+.features-box:hover::after {
+  opacity: 1;
+}
+
+@keyframes steam {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
 
 
 @media (min-width: 992px) {
@@ -813,7 +1141,6 @@ textarea:focus-visible{
     top: 26%;
     z-index: -1;
   }
-  
   .playing > div {
     height: 100%;
     background: linear-gradient(190deg, rgba(0, 0, 0, 0) 0%, #09B58D 50%, rgba(0, 0, 0, 0) 100%);
@@ -871,7 +1198,12 @@ textarea:focus-visible{
       transform: scaleY(1);
     }
   }
-
+  .create-wrapper{
+    margin-bottom: 50px;
+  }
+  .about-generate-img{
+    margin: auto;
+   }
   
 }
 
@@ -978,6 +1310,21 @@ textarea:focus-visible{
 		display: block;
 		border-top: 1px solid var(--custom-white);
 	}
+  .create-wrapper{
+    margin-bottom: 100px;
+  }
+  .about-wrapper{
+    margin-bottom: 50px;
+  }
+  .about-generate-row{
+    flex-direction: column-reverse;
+  }
+}
+
+@media (min-width: 767px) and (max-width: 991px){
+  .about-img {
+    margin: auto;
+  }
 }
 
 @media (max-width: 767px) {
@@ -997,10 +1344,32 @@ textarea:focus-visible{
   .hero-section {
     padding-top: 170px;
   }
+  .h2, h2 {
+    font-size: 33px;
+    line-height: 40px;
+  }
 }
 
 @media (max-width: 479px) {
   .song-generate-btn a{
     width: 85%;
+  }
+  .lyrics-box,
+  .create-arrow,
+  .about-generate-box,
+  .saved-songs-box{
+    left: 0;
+  }
+  .classical {
+    left: 10%;
+  }
+  .pop {
+    left: 18%;
+  }
+  .rock {
+    left: 13%;
+  }
+  .saved-songs-arrow {
+    left: 8%;
   }
 }
