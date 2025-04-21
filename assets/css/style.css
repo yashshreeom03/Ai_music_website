@@ -209,7 +209,7 @@ body {
   right: -1px;
   z-index: 0;
   width: 1px;
-  border: 0.5px solid #ffffff10;
+  border: 0.5px solid #ffffff03;
 }
 
 .grid-line-5::after, .grid-line-4::after, .grid-line-3::after, .grid-line-2::after, .grid-line-1::after {
@@ -1080,8 +1080,13 @@ textarea:focus-visible{
   backdrop-filter: blur(10px);
 }
 
+.features-box:hover h5,
 .features-box:hover p{
-  color: var(--custom-white);
+  color: #0a1c26;
+}
+
+.features-box:hover .features-icon-box{
+  background: #0a1c26;
 }
 
 .features-box::before,
@@ -1093,7 +1098,7 @@ textarea:focus-visible{
   width: calc(100% + 4px);
   height: calc(100% + 4px);
   background: linear-gradient(45deg, #4ce4ff, #1ABDB6, #0fcef0fb,#46cec7, #74dad3, #51d9f1, 
-    #11d1f3, #56f5ed,#2edaf8, #03e9da);
+    #11d1f3, #56f5ed,#2edaf8, #03e9da , #4ce4ff);
   background-size: 400%;
   z-index: -1;
   opacity: 0;
