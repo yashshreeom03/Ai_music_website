@@ -86,47 +86,16 @@ Version: 1.0
 
 
       /******************* ## Testimonials Slider ******************/
-      if ($(".slider-for").length > 0) {
-          $(".slider-for").slick({
-              slidesToShow: 1,
-              slidesToScroll: 1,
-              fade: true,
-              asNavFor: ".slider-nav",
-              arrows: false,
+      if ($(".testimonials-section").length) {
+        if ($(".single-item").length > 0) {
+          $(".single-item").slick({
+            dots: false,
+            arrows: false,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
           });
-
-          $(".slider-nav").slick({
-              slidesToShow: 5,
-              slidesToScroll: 1,
-              asNavFor: ".slider-for",
-              dots: false,
-              arrows: false,
-              centerMode: true,
-              centerPadding: "0px",
-              focusOnSelect: true,
-              responsive: [
-                  {
-                      breakpoint: 1024,
-                      settings: {
-                          slidesToShow: 3,
-                      },
-                  },
-                  {
-                      breakpoint: 768,
-                      settings: {
-                          slidesToShow: 1,
-                      },
-                  },
-              ],
-          });
-
-          $(".custom-prev").click(function () {
-              $(".slider-nav").slick("slickPrev");
-          });
-
-          $(".custom-next").click(function () {
-              $(".slider-nav").slick("slickNext");
-          });
+        }
       }
   });
 
@@ -331,6 +300,29 @@ Version: 1.0
       }
     });
   });
+
+
+
+  $(document).ready(function () {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const $el = $(entry.target);
+          if ($el.hasClass('generate-line-1')) {
+            $el.addClass('animate-line-1');
+          } else if ($el.hasClass('generate-line-2')) {
+            $el.addClass('animate-line-2');
+          }
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    $('.generate-line-1, .generate-line-2').each(function () {
+      observer.observe(this);
+    });
+  });
     
 })(window.jQuery);
+
 
