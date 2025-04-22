@@ -16,6 +16,12 @@ Version: 1.0
 	## Preloader
 	## Window Scroll
 	## Cursor
+  ## Scroll Nav Menu Active
+  ## Textarea
+  ## Audio Btn
+  ## Countdown for Our Success
+  ## About
+  ## FAQ
 	
 ----------------------------------------------------------------------*/
 
@@ -276,8 +282,7 @@ Version: 1.0
       });
   });
   
-
-  /******************* ## Cursor ******************/
+  /******************* ## Textarea ******************/
   $('#myTextArea').on('input keyup paste', function() {
     var $el = $(this),
         offset = $el.innerHeight() - $el.height();
@@ -291,8 +296,7 @@ Version: 1.0
     }
   });
 
-  /******************* ## Cursor ******************/
-  // Add your audio/video control logic here
+  /******************* ## Audio Btn ******************/
   $(document).ready(function () {
     let isPlaying = false;
 
@@ -341,9 +345,7 @@ Version: 1.0
     countObServer.observe(this);
   });
 
-
-
-  /******************* ## Cursor ******************/
+  /******************* ## About ******************/
   $(document).ready(function () {
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {

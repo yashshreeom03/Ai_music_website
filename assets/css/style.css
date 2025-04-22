@@ -23,6 +23,7 @@ Version: 1.0
       ## Discover Section
       ## About Us Section
       ## Features Section
+  04. Footer
       
 ----------------------------------------------------------------------*/
 
@@ -1248,6 +1249,31 @@ textarea:focus-visible{
   background-color: var(--mainly-blue-2);
   padding: 70px 30px;
   border-radius: var(--border-radius10);
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials-wrapper::before{
+  content: '';
+  position: absolute;
+  width: 241px;
+  aspect-ratio: 1 / 1;
+  background: #09B58D6B;
+  filter: blur(100px);
+  border-radius: 100%;
+  bottom: -20%;
+  left: 25%;
+}
+.testimonials-wrapper::after{
+  content: '';
+  position: absolute;
+  width: 142px;
+  aspect-ratio: 1 / 1;
+  background: #09B58D6B;
+  filter: blur(100px);
+  border-radius: 100%;
+  top: 0%;
+  right: 0%;
 }
 
 .single-item{
@@ -1381,7 +1407,42 @@ textarea:focus-visible{
   justify-content: center;
 }
 
+/*========================
+	04. Footer 
+========================*/
+.footer-default{
+  background: url('../images/bg/footer.png'),
+    linear-gradient(180deg, #000000 0%, rgba(26, 39, 47, 0.79) 50%, #1A272F 100%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
 
+.footer-btn{
+  margin-bottom: 121px;
+}
+
+.widget-menu{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.copyright-area{
+  padding: 40px 10px;
+  border-top: 1px solid;  
+  border-image: linear-gradient(270deg, #ffffff00 0%, #ffffff24 50%, #ffffff00 100%);
+  border-image-slice: 1
+}
+
+.copyright-area p{
+  color: var(--custom-white);
+  font-size: 14px;
+}
 
 @media (min-width: 992px) {
   .main-menu ul li {
