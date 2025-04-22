@@ -90,13 +90,23 @@ Version: 1.0
         if ($(".single-item").length > 0) {
           $(".single-item").slick({
             dots: false,
-            arrows: false,
+            arrows: false, // keep false since you're using custom buttons
             slidesToScroll: 1,
             autoplay: true,
             autoplaySpeed: 2000,
           });
+      
+          // Custom arrow functionality
+          $(".custom-next").on("click", function () {
+            $(".single-item").slick("slickNext");
+          });
+      
+          $(".custom-prev").on("click", function () {
+            $(".single-item").slick("slickPrev");
+          });
         }
       }
+      
   });
 
   /******************* ## WOW ******************/
@@ -206,7 +216,7 @@ Version: 1.0
   });
       
 
-
+  /******************* ## Cursor ******************/
   $(".hero-img-main").on("mousemove", function (e) {
     if ($(window).width() > 991) {
       const wrapper = $(this);
@@ -267,7 +277,7 @@ Version: 1.0
   });
   
 
-
+  /******************* ## Cursor ******************/
   $('#myTextArea').on('input keyup paste', function() {
     var $el = $(this),
         offset = $el.innerHeight() - $el.height();
@@ -281,7 +291,7 @@ Version: 1.0
     }
   });
 
-
+  /******************* ## Cursor ******************/
   // Add your audio/video control logic here
   $(document).ready(function () {
     let isPlaying = false;
@@ -301,8 +311,39 @@ Version: 1.0
     });
   });
 
+  /******************* ## Countdown for Our Success ******************/
+  const countObServer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        let target = $(entry.target);
+        if (!target.hasClass("counted")) {
+          target.addClass("counted");
+          let countTo = target.data("stop");
+          $({ countNum: target.text() }).animate(
+            { countNum: countTo },
+            {
+              duration: 2000,
+              easing: "swing",
+              step: function () {
+                target.text(Math.floor(this.countNum));
+              },
+              complete: function () {
+                target.text(this.countNum);
+              },
+            }
+          );
+        }
+      }
+    });
+  });
+
+  $(".count-text").each(function () {
+    countObServer.observe(this);
+  });
 
 
+
+  /******************* ## Cursor ******************/
   $(document).ready(function () {
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
@@ -322,7 +363,40 @@ Version: 1.0
       observer.observe(this);
     });
   });
+
+  /******************* ## FAQ ******************/
+  $(document).ready(function () {
+    const $faqItems = $('.faq-item');
+  
+    const $firstItem = $faqItems.first();
+    if ($firstItem.length) {
+      $firstItem.addClass('active');
+      const $firstAnswer = $firstItem.find('.faq-answer');
+      $firstAnswer.css('max-height', $firstAnswer[0].scrollHeight + 'px');
+    }
+  
+    $faqItems.on('click', function () {
+      const $clickedItem = $(this);
+      const $clickedAnswer = $clickedItem.find('.faq-answer');
+  
+      $faqItems.not($clickedItem).each(function () {
+        $(this).removeClass('active').find('.faq-answer').css('max-height', 0);
+      });
+  
+      $clickedItem.toggleClass('active');
+  
+      if ($clickedItem.hasClass('active')) {
+        $clickedAnswer.css('max-height', $clickedAnswer[0].scrollHeight + 'px');
+      } else {
+        $clickedAnswer.css('max-height', 0);
+      }
+    });
+  });
+  
     
 })(window.jQuery);
+
+
+
 
 
