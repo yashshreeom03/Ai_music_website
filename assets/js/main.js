@@ -12,7 +12,7 @@ Version: 1.0
 	## Main Menu
 	## Back to Top
 	## Testimonials Slider
-	## WOW
+	## Aos
 	## Preloader
 	## Window Scroll
 	## Cursor
@@ -95,28 +95,32 @@ Version: 1.0
       if ($(".single-item").length > 0) {
         $(".single-item").slick({
           dots: false,
-          arrows: false, // keep false since you're using custom buttons
+          arrows: false, 
           slidesToScroll: 1,
           autoplay: true,
           autoplaySpeed: 2000,
+          responsive: [
+            {
+              breakpoint: 991,
+              settings: {
+                dots: true 
+              }
+            }
+          ]
         });
-
-        // Custom arrow functionality
         $(".custom-next").on("click", function () {
           $(".single-item").slick("slickNext");
         });
-
+    
         $(".custom-prev").on("click", function () {
           $(".single-item").slick("slickPrev");
         });
       }
-    }
+    }    
   });
 
-  /******************* ## WOW ******************/
-  // if (typeof WOW != "undefined") {
-  //     new WOW({}).init();
-  // }
+  /******************* ## Aos ******************/
+  AOS.init();
 
   /******************* ## Preloader ******************/
   $(document).ready(function () {
@@ -341,7 +345,7 @@ Version: 1.0
   $(".count-text").each(function () {
     countObServer.observe(this);
   });
-
+  
   /******************* ## About ******************/
   $(document).ready(function () {
     const observer = new IntersectionObserver((entries, observer) => {
@@ -441,4 +445,3 @@ Version: 1.0
     });
   });
 })(window.jQuery);
-

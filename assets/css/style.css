@@ -1415,6 +1415,23 @@ textarea:focus-visible{
   right: 0;
 }
 
+.slick-dots li.slick-active button:before{
+  opacity: 1;
+}
+
+.slick-dots li.slick-active button:before,
+.slick-dots li button:before{
+  color: var(--primary-color);
+}
+
+.slick-dots li button:before{
+  font-size: 10px;
+}
+
+.slick-dots {
+  bottom: -40px;
+}
+
 /*---========================
   3.7 Counter Section
 =======================----*/
@@ -1783,7 +1800,7 @@ textarea:focus-visible{
     font-size: 16px;
   }
   .testimonials-wrapper{
-    padding: 30PX;
+    padding: 50px 30px;
   }
   .testimonials-wrapper .section-title {
     margin-bottom: 40px;
