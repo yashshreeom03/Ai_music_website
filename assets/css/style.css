@@ -502,7 +502,6 @@ input,
 textarea {
 	border: 1px solid transparent;
 	width: 100%;
-	height: 66px;
 	padding: 0px 27px;
 	font-size: 0.9375rem;
 	font-weight: 500;
@@ -518,6 +517,7 @@ textarea {
 textarea {
 	padding: 24px 27px;
   overflow-y: auto;
+  resize: none;
 }
 
 input:focus,
@@ -914,9 +914,29 @@ textarea:focus-visible{
 }
 
 .lyrics-line-1,
-.lyrics-line-3{
-  width: 85%;
+.lyrics-line-2,
+.lyrics-line-3 {
+  width: 0;
   margin: auto;
+}
+
+@keyframes growWidth1and3 {
+  from { width: 0; }
+  to { width: 85%; }
+}
+
+@keyframes growWidth2 {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.lyrics-line-1.animate,
+.lyrics-line-3.animate {
+  animation: growWidth1and3 1s ease forwards;
+}
+
+.lyrics-line-2.animate {
+  animation: growWidth2 1s ease forwards;
 }
 
 .genre-box {
@@ -990,6 +1010,7 @@ textarea:focus-visible{
 .generate-line-2{
   display: block;
   margin: 0;
+  width: 0;
 }
 
 .animate-line-1 {
@@ -1106,6 +1127,7 @@ textarea:focus-visible{
   height: 100%;
   position: relative;
   overflow: hidden;
+  transition: background 0.5s ease; 
 }
 
 .features-icon-box{
@@ -1147,9 +1169,15 @@ textarea:focus-visible{
   background-size: 400%;
   z-index: -1;
   opacity: 0;
-  -webkit-transition: opacity 0.8s ease;
   transition: opacity 0.8s ease;
   animation: steam 20s linear infinite;
+}
+
+.features-box h5,
+.features-box p,
+.features-box .features-icon-box {
+  position: relative;                 
+  transition: color 0.5s ease, background 0.5s ease;
 }
 
 .features-box:hover::before {
@@ -1157,27 +1185,15 @@ textarea:focus-visible{
 }
 
 @-webkit-keyframes steam {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0%   { background-position:   0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position:   0% 50%; }
 }
 
 @keyframes steam {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0%   { background-position:   0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position:   0% 50%; }
 }
 
 /*---========================

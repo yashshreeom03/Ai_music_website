@@ -16,12 +16,12 @@ Version: 1.0
 	## Preloader
 	## Window Scroll
 	## Cursor
-	## ## Hero Img 3D
+	## Hero Img 3D
   ## Scroll Nav Menu Active
-  ## Textarea
   ## Audio Btn
   ## Countdown for Our Success
   ## About
+  ## Progress Bar
   ## FAQ
 	
 ----------------------------------------------------------------------*/
@@ -293,19 +293,6 @@ Version: 1.0
     });
   });
 
-  /******************* ## Textarea ******************/
-  $("#myTextArea").on("input keyup paste", function () {
-    var $el = $(this),
-      offset = $el.innerHeight() - $el.height();
-
-    if ($el.innerHeight() < this.scrollHeight) {
-      $el.height(this.scrollHeight - offset);
-    } else {
-      $el.height(1);
-      $el.height(this.scrollHeight - offset);
-    }
-  });
-
   /******************* ## Audio Btn ******************/
   $(document).ready(function () {
     let isPlaying = false;
@@ -376,6 +363,55 @@ Version: 1.0
     });
   });
 
+  $(document).ready(function () {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          $(entry.target).addClass('animate');
+          observer.unobserve(entry.target); 
+        }
+      });
+    });
+  
+    $('.lyrics-line-1, .lyrics-line-2, .lyrics-line-3').each(function () {
+      observer.observe(this);
+    });
+  });
+
+  /******************* ## Progress Bar ******************/
+  $(document).ready(function() {
+    const $progressBar = $(".progress-bar");
+    const $progressText = $("#progress-percentage");
+    let isAnimating = false;
+  
+    function countProgress(target) {
+        let current = 0;
+        const increment = target / 100;
+        const interval = setInterval(function() {
+            current += increment;
+            if (current >= target) {
+                current = target; 
+                clearInterval(interval);
+            }
+  
+            $progressText.text(Math.round(current) + "%");
+            $progressBar.css("width", Math.round(current) + "%");
+        }, 10);
+    }
+  
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting && !isAnimating) {
+                isAnimating = true; 
+                countProgress(67);
+            }
+        });
+    }, { threshold: 0.5 });
+  
+    observer.observe(document.querySelector(".progress-wrapper"));
+  });
+  
+
   /******************* ## FAQ ******************/
   $(document).ready(function () {
     const $faqItems = $(".faq-item");
@@ -405,3 +441,5 @@ Version: 1.0
     });
   });
 })(window.jQuery);
+
+
