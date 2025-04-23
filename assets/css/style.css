@@ -165,9 +165,9 @@ body {
   position: fixed;
   height: 100vh;
   width: 100%;
-  background: rgba(var(--custom-white-rgb), 0.322);
   z-index: 7;
   top: 0;
+  background-color: rgb(84 84 84 / 55%);
   opacity: 0;
   visibility: hidden;
   right: 0;
@@ -704,6 +704,7 @@ textarea:focus-visible{
   right: 20px;
   top: 10px;
   color: var(--custom-white);
+  z-index: 7;
 }
 
 .main-menu-btn {
@@ -1127,7 +1128,7 @@ textarea:focus-visible{
   height: 100%;
   position: relative;
   overflow: hidden;
-  transition: background 0.5s ease; 
+  transition: background  1s ease; 
 }
 
 .features-icon-box{
@@ -1167,33 +1168,48 @@ textarea:focus-visible{
   background: linear-gradient(45deg, #4ce4ff, #1ABDB6, #0fcef0fb,#46cec7, #74dad3, #51d9f1, 
     #11d1f3, #56f5ed,#2edaf8, #03e9da , #4ce4ff);
   background-size: 400%;
-  z-index: -1;
   opacity: 0;
-  transition: opacity 0.8s ease;
+  z-index: 0;
+  border-radius: var(--border-radius5);
+  transition: opacity 0.8s ease, transform 0.8s ease;
   animation: steam 20s linear infinite;
+  transform: scale(1.05); 
+}
+
+.features-box:hover::before {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .features-box h5,
 .features-box p,
 .features-box .features-icon-box {
   position: relative;                 
-  transition: color 0.5s ease, background 0.5s ease;
-}
-
-.features-box:hover::before {
-  opacity: 1;
+  transition: color  1s ease, background 1s ease;
 }
 
 @-webkit-keyframes steam {
-  0%   { background-position:   0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position:   0% 50%; }
+  0%   { 
+    background-position:   0% 50%; 
+  }
+  50%  { 
+    background-position: 100% 50%; 
+  }
+  100% { 
+    background-position:   0% 50%; 
+  }
 }
 
 @keyframes steam {
-  0%   { background-position:   0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position:   0% 50%; }
+  0%   { 
+    background-position:   0% 50%; 
+  }
+  50%  { 
+    background-position: 100% 50%; 
+  }
+  100% { 
+    background-position:   0% 50%; 
+  }
 }
 
 /*---========================
@@ -1214,13 +1230,13 @@ textarea:focus-visible{
   border-radius: var(--border-radius5);
 }
 
-.pricing-plan button.active,
-.pricing-plan button:hover{
+.pricing-plan button.active{
   background: linear-gradient(90deg, var(--secondary-color) 0%, var(--primary-color) 100%);
 }
 
 .pricing-row{
   gap: 25px 0px;
+  justify-content: center;
 }
 
 .pricing-plan-wrapper{
