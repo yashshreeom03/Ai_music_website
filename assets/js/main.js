@@ -418,21 +418,21 @@ Version: 1.0
 
   /******************* ## FAQ ******************/
   $(document).ready(function () {
-    const $faqItems = $(".faq-item");
+    const $faqItems = $(".accordion-card");
 
     const $firstItem = $faqItems.first();
     if ($firstItem.length) {
       $firstItem.addClass("active");
-      const $firstAnswer = $firstItem.find(".faq-answer");
+      const $firstAnswer = $firstItem.find(".accordion-content");
       $firstAnswer.css("max-height", $firstAnswer[0].scrollHeight + "px");
     }
 
     $faqItems.on("click", function () {
       const $clickedItem = $(this);
-      const $clickedAnswer = $clickedItem.find(".faq-answer");
+      const $clickedAnswer = $clickedItem.find(".accordion-content");
 
       $faqItems.not($clickedItem).each(function () {
-        $(this).removeClass("active").find(".faq-answer").css("max-height", 0);
+        $(this).removeClass("active").find(".accordion-content").css("max-height", 0);
       });
 
       $clickedItem.toggleClass("active");

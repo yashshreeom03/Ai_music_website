@@ -432,7 +432,7 @@ h6 {
   margin-left: auto;
 }
 
-/*====== Start Back to top css ======*/
+/*====== Back to top btn Css ======*/
 .back-to-top {
   position: fixed;
   right: 25px;
@@ -441,7 +441,8 @@ h6 {
   aspect-ratio: 1 / 1;
   cursor: pointer;
   border-radius: var(--border-radius5);
-  background-color: var(--secondary-color);
+  background-size: 200% 100%;
+  background-position: left center;
   z-index: 80;
   opacity: 0;
   visibility: hidden;
@@ -457,7 +458,26 @@ h6 {
 .back-to-top.scroll-to-target {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0)
+  transform: translateY(0);
+  animation: bgColorChange 3s infinite alternate;
+}
+
+@-webkit-keyframes bgColorChange {
+  0%, 100% {
+    background-color: var(--secondary-color);
+  }
+  50% {
+    background-color: var(--primary-color);
+  }
+}
+
+@keyframes bgColorChange {
+  0%, 100% {
+    background-color: var(--secondary-color);
+  }
+  50% {
+    background-color: var(--primary-color);
+  }
 }
 
 /*===== Button Style =====*/
@@ -721,7 +741,7 @@ textarea:focus-visible{
 /*---========================
       3.1 Hero Section
 =======================----*/
-.hero-section{
+.hero-wrapper{
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -821,11 +841,11 @@ textarea:focus-visible{
   flex-wrap: wrap;
 }
 
-.music-tag-wrapper{
+.music-tag-wrap{
   gap: 5px;
 }
 
-.discover-music-img{
+.discover-music-thumbnail{
   position: relative;
   width: 71px;
   aspect-ratio: 1 / 1;
@@ -851,7 +871,7 @@ textarea:focus-visible{
   transform: translate(-50%, -50%);
 }
 
-.discover-music-details h6{
+.discover-music-content h6{
   margin-bottom: 15px;
 }
 
@@ -1131,7 +1151,7 @@ textarea:focus-visible{
   transition: background  1s ease; 
 }
 
-.features-icon-box{
+.features-icon{
   background: linear-gradient(90deg, var(--secondary-color) 0%, var(--primary-color) 100%);
   width: 44px;
   aspect-ratio: 1 / 1;
@@ -1154,7 +1174,7 @@ textarea:focus-visible{
   color: var(--mainly-blue-2);
 }
 
-.features-box:hover .features-icon-box{
+.features-box:hover .features-icon{
   background: var(--mainly-blue-2);
 }
 
@@ -1183,7 +1203,7 @@ textarea:focus-visible{
 
 .features-box h5,
 .features-box p,
-.features-box .features-icon-box {
+.features-box .features-icon {
   position: relative;                 
   transition: color  1s ease, background 1s ease;
 }
@@ -1455,7 +1475,7 @@ textarea:focus-visible{
 /*---========================
   3.8 FAQ Section
 =======================----*/
-.faq-item{
+.accordion-card{
   width: 100%;
   border: 2px solid rgba(var(--custom-white-rgb), 0.102);
   border-radius: var(--border-radius5);
@@ -1464,28 +1484,28 @@ textarea:focus-visible{
   margin-bottom: 30px;
 }
 
-.faq-item.active {
+.accordion-card.active {
   background-color: var(--mainly-blue-2);
   border-color: transparent;
 }
 
-.faq-item.active .faq-question{
+.accordion-card.active .accordion-header{
   margin-bottom: 25px;
 }
 
-.faq-answer {
+.accordion-content {
   max-height: 0;
   overflow: hidden;
   -webkit-transition: max-height 0.5s ease;
   transition: max-height 0.5s ease;
 }
 
-.faq-answer p{
+.accordion-content p{
   color: var(--custom-white);
   font-size: 16px;
 }
 
-.faq-question {
+.accordion-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1496,15 +1516,15 @@ textarea:focus-visible{
   line-height: 25px;
 }
 
-.faq-question i {
+.accordion-header  i {
   -webkit-transition: transform 0.5s ease;
   transition: transform 0.5s ease;
 }
-.faq-item.active .faq-question i {
+.accordion-card.active .accordion-header i {
   transform: rotate(180deg);
 }
 
-.faq-question .arrow-btn{
+.accordion-header .arrow-btn{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1513,7 +1533,7 @@ textarea:focus-visible{
 /*========================
 	04. Footer 
 ========================*/
-.footer-default{
+.footer-wrapper{
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1626,7 +1646,8 @@ textarea:focus-visible{
   .create-wrapper{
     margin-bottom: 50px;
   }
-  .about-section .playing{
+  .about-section .playing,
+  .pricing-section .playing{
     position: relative;
     top: 0;
     margin-bottom: 30px;
@@ -1675,11 +1696,11 @@ textarea:focus-visible{
 		width: 320px;
 		overflow-y: auto;
 		z-index: 99;
-		padding: 87px 0px;
+		padding: 87px 0px 40px;
 		background: var(--custom-black);
 		}
 	.ll-nav-menu.open {
-		display: flex;
+		display: block;
 		animation: slideIn 0.3s ease forwards;
 	}
 	.ll-nav-menu.closing {
@@ -1769,7 +1790,7 @@ textarea:focus-visible{
     font-size: 40px;
     line-height: 46px;
   }
-  .hero-section {
+  .hero-wrapper {
     padding-top: 170px;
   }
   h2 {
