@@ -51,10 +51,11 @@ Version: 1.0
   --mainly-blue-4: #166FAB; 
   --border-radius5: 5px;
   --border-radius10: 10px;
+  --base-font: "Geologica", sans-serif;
 }
 
 html {
-  scroll-behavior: auto;
+  scroll-behavior: smooth;
 }
 
 * {
@@ -127,7 +128,7 @@ body {
   font-weight: 400;
   line-height: 16px;
   font-size: 16px;
-  font-family: "Geologica", sans-serif;
+  font-family: var(--base-font);
   box-sizing: border-box;
   overflow-x: hidden;
 }
