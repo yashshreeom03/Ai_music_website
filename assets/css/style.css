@@ -224,10 +224,7 @@ body {
 	right: -1px;
 	width: 2px;
 	height: 60px;
-	background: linear-gradient(
-	  var(--custom-black) 0%,
-	  var(--secondary-color) 100%
-	);
+	background: linear-gradient( var(--custom-black) 0%, var(--secondary-color) 100% );
 	border-radius: 1px;
 	opacity: 0.8;
 }
@@ -314,6 +311,74 @@ body {
 	backdrop-filter: blur(49px);
 	border-radius: var(--border-radius5);
 	color: var(--custom-white);
+}
+
+.playing {
+	width: 100%;
+	height: 118px;
+	text-align: center;
+	-webkit-transition: all 0.2s ease;
+	transition: all 0 6s ease;
+	position: absolute;
+	top: 26%;
+	z-index: -1;
+}
+.playing > div {
+	height: 100%;
+	background: linear-gradient( 190deg, rgba(var(--custom-black-rgb), 0) 0%, var(--mainly-green-2) 50%, rgba(var(--custom-black-rgb), 0) 100% );
+	width: 2px;
+	display: inline-block;
+	-webkit-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+	-webkit-animation: wavy 1s ease infinite forwards;
+	animation: wavy 1 ease infinite forwards;
+	-webkit-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
+	margin: 0px 10px;
+}
+.playing .rect2 {
+	-webkit-animation-delay: 0.25s;
+	animation-delay: 0.25s;
+}
+.playing .rect3 {
+	-webkit-animation-delay: 0.5s;
+	animation-delay: 0.5s;
+}
+.playing .rect4 {
+	-webkit-animation-delay: 0.75s;
+	animation-delay: 0.75s;
+}
+.playing .rect5 {
+	-webkit-animation-delay: 1s;
+	animation-delay: 1s;
+}
+@-webkit-keyframes wavy {
+	0% {
+		-webkit-transform: scaleY(1);
+		transform: scaleY(1);
+	}
+	50% {
+		-webkit-transform: scaleY(0.6);
+		transform: scaleY(0.6);
+	}
+	100% {
+		-webkit-transform: scaleY(1);
+		transform: scaleY(1);
+	}
+}
+@keyframes wavy {
+	0% {
+		-webkit-transform: scaleY(1);
+		transform: scaleY(1);
+	}
+	50% {
+		-webkit-transform: scaleY(0.6);
+		transform: scaleY(0.6);
+	}
+	100% {
+		-webkit-transform: scaleY(1);
+		transform: scaleY(1);
+	}
 }
   
   /*===== Typography =====*/
@@ -685,10 +750,16 @@ textarea:focus-visible {
 }
   
 .main-menu {
-	gap: 30px;
+	gap: 75px;
 	justify-content: space-between;
 }
   
+.main-menu ul li {
+	display: inline-block;
+	padding: 45px 0px;
+	margin: 0px 25px;
+}
+
 .main-menu ul li a.active {
 	color: var(--primary-color);
 }
@@ -704,7 +775,7 @@ textarea:focus-visible {
 }
   
 .main-menu-btn {
-	gap: 20px;
+	gap: 25px;
 	flex-wrap: wrap;
 }
   
@@ -1156,6 +1227,13 @@ textarea:focus-visible {
 	top: 173px;
 	left: 16%;
 }
+
+.about-section .playing,
+.pricing-section .playing {
+	position: relative;
+	top: 0;
+	margin-bottom: 30px;
+}
   
 /*---========================
 	3.4 Features Section
@@ -1601,114 +1679,33 @@ textarea:focus-visible {
 }
   
 @media (min-width: 992px) {
-	.main-menu ul li {
-		cursor: pointer;
-		display: inline-block;
-		padding: 45px 0px;
-		margin: 0px 5px;
-	}
 	.hero-content p {
 		max-width: 66%;
 		line-height: 38px;
 	}
-	.playing {
-		width: 100%;
-		height: 118px;
-		text-align: center;
-		-webkit-transition: all 0.2s ease;
-		transition: all 0 6s ease;
-		position: absolute;
-		top: 26%;
-		z-index: -1;
-	}
-	.playing > div {
-		height: 100%;
-		background: linear-gradient( 190deg, rgba(var(--custom-black-rgb), 0) 0%, var(--mainly-green-2) 50%, rgba(var(--custom-black-rgb), 0) 100% );
-		width: 2px;
-		display: inline-block;
-		-webkit-transition: all 0.2s ease;
-		transition: all 0.2s ease;
-		-webkit-animation: wavy 1s ease infinite forwards;
-		animation: wavy 1 ease infinite forwards;
-		-webkit-transform-origin: 50% 50%;
-		transform-origin: 50% 50%;
-		margin: 0px 8px;
-	}
-	.playing .rect2 {
-		-webkit-animation-delay: 0.25s;
-		animation-delay: 0.25s;
-	}
-	.playing .rect3 {
-		-webkit-animation-delay: 0.5s;
-		animation-delay: 0.5s;
-	}
-	.playing .rect4 {
-		-webkit-animation-delay: 0.75s;
-		animation-delay: 0.75s;
-	}
-	.playing .rect5 {
-		-webkit-animation-delay: 1s;
-		animation-delay: 1s;
-	}
-	@-webkit-keyframes wavy {
-		0% {
-			-webkit-transform: scaleY(1);
-			transform: scaleY(1);
-		}
-		50% {
-			-webkit-transform: scaleY(0.6);
-			transform: scaleY(0.6);
-		}
-		100% {
-			-webkit-transform: scaleY(1);
-			transform: scaleY(1);
-		}
-	}
-	@keyframes wavy {
-		0% {
-			-webkit-transform: scaleY(1);
-			transform: scaleY(1);
-		}
-		50% {
-			-webkit-transform: scaleY(0.6);
-			transform: scaleY(0.6);
-		}
-		100% {
-			-webkit-transform: scaleY(1);
-			transform: scaleY(1);
-		}
-	}
 	.create-wrapper {
 	 	margin-bottom: 50px;
-	}
-	.about-section .playing,
-	.pricing-section .playing {
-		position: relative;
-		top: 0;
-		margin-bottom: 30px;
 	}
 	.about-generate-img {
 	  	margin: auto;
 	}
 }
-  
-@media (min-width: 1199px) {
+
+@media (max-width: 1199px) {
 	.main-menu ul li {
-	  	margin: 0px 10px;
+		margin: 0px 10px;
+  	}
+	.main-menu {
+		gap: 40px;
 	}
 	.playing > div {
-	  	margin: 0px 10px;
-	}
-}
-  
-@media (min-width: 1399px) {
-	.main-menu ul li {
-	  	margin: 0px 25px;
-	}
+		margin: 0px 8px;
+  	}
 }
   
 @media (max-width: 991px) {
-	.custom-cursor {
+	.custom-cursor,
+	.playing{
 	  	display: none;
 	}
 	.main-menu {
@@ -1720,7 +1717,13 @@ textarea:focus-visible {
 	.main-menu ul {
 	  	width: 100%;
 	}
-	.ll-nav-menu {
+	.main-menu ul li {
+		display: block;
+		padding: 0;
+		margin: 0;
+		border-top: 1px solid var(--custom-white);
+	}
+	.mobile-nav-menu {
 		text-align: left;
 		position: fixed;
 		display: none;
@@ -1731,14 +1734,14 @@ textarea:focus-visible {
 		width: 320px;
 		overflow-y: auto;
 		z-index: 99;
-		padding: 87px 0px 40px;
+		padding: 88px 0px 40px;
 		background: var(--custom-black);
 	}
-	.ll-nav-menu.open {
+	.mobile-nav-menu.open {
 		display: block;
 		animation: slideIn 0.3s ease forwards;
 	}
-	.ll-nav-menu.closing {
+	.mobile-nav-menu.closing {
 	  	animation: slideOut 0.3s ease forwards;
 	}
 	@-webkit-keyframes slideIn {
@@ -1789,7 +1792,6 @@ textarea:focus-visible {
 	.main-menu ul li a {
 		padding: 15px 20px;
 		display: block;
-		border-top: 1px solid var(--custom-white);
 	}
 	.create-wrapper {
 	  	margin-bottom: 100px;

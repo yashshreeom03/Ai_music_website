@@ -32,7 +32,7 @@ Version: 1.0
   $(document).ready(function () {
     /******************* ## Main Menu ******************/
     if ($(".menu-toggle").length) {
-      const navMenu = $(".ll-nav-menu");
+      const navMenu = $(".mobile-nav-menu");
       const overlay = $(".offcanvas-overlay");
       const body = $("body");
 
