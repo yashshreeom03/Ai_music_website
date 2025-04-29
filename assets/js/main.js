@@ -19,6 +19,8 @@ Version: 1.0
 	## Scroll Nav Menu Active
 	## Audio Btn
 	## Countdown for Our Success
+	## About
+	## Progress Bar
 	## FAQ
       
 ----------------------------------------------------------------------*/
@@ -105,36 +107,46 @@ Version: 1.0
 		heroImageLeave();
 		
 		/*** Audio Play ***/
-		if ($(".play-button").length) {
-			let currentAudio = null; 
-			let currentButton = null; 
-		  
+		if($(".play-button").length) {
+			let isPlaying = false;
 			$(".play-button").on("click", function () {
-			  const $button = $(this);
-			  const $icon = $button.find("i");
-			  const $audio = $button.siblings("audio")[0]; 
-		  
-			  if (currentAudio && currentAudio !== $audio) {
-				currentAudio.pause();
-				currentAudio.currentTime = 0;
-				$(currentButton).find("i").removeClass("fa-pause").addClass("fa-play");
-			  }
-		  
-			  if ($audio.paused) {
-				$audio.play();
-				$icon.removeClass("fa-play").addClass("fa-pause");
-				currentAudio = $audio;
-				currentButton = $button;
-				console.log("Playing...");
-			  } else {
-				$audio.pause();
-				$audio.currentTime = 0;
-				$icon.removeClass("fa-pause").addClass("fa-play");
-				currentAudio = null;
-				currentButton = null;
-				console.log("Stopped.");
-			  }
+			  isPlaying = !isPlaying;
+
+			  const $icon = $(this).find("i");
+			  $icon.toggleClass("fa-play", !isPlaying);
+			  $icon.toggleClass("fa-pause", isPlaying);
+
 			});
+		}
+		
+		/*** Song Progress  ***/
+		function songProgress(target) {
+			const $progressBar = $(".song-count-line");
+			const $progressText = $("#count-number");
+			let current = 0;
+			const increment = target / 100;
+			const interval = setInterval(function() {
+				current += increment;
+				if (current >= target) {
+					current = target; 
+					clearInterval(interval);
+				}
+	  
+				$progressText.text(Math.round(current) + "%");
+				$progressBar.css("width", Math.round(current) + "%");
+			}, 10);
+		}
+		if($(".song-progressbar-wrapper").length){
+			let isAnimating = false;
+			const observer = new IntersectionObserver(function(entries) {
+				entries.forEach(function(entry) {
+					if (entry.isIntersecting && !isAnimating) {
+						isAnimating = true; 
+						songProgress(67);
+					}
+				});
+			}, { threshold: 0.5 });
+			observer.observe(document.querySelector(".song-progressbar-wrapper"));
 		}
 		
 		/*** Testimonials ***/
@@ -256,32 +268,8 @@ Version: 1.0
 			$cursorData.on("mouseover.customCursor", function () {
 				let text = $(this).data("cursor");
 			});
-		}	
-		
-		});
-
-		/*** Pricing ***/
-		$(document).ready(function () {
-			$('.plan-btn').on('click', function () {
-			  // Toggle active button class
-			  $('.plan-btn').removeClass('active');
-			  $(this).addClass('active');
-		
-			  const selectedPlan = $(this).data('plan');
-		
-			  $('.pricing-text h3').each(function () {
-				const monthly = $(this).data('monthly');
-				const yearly = $(this).data('yearly');
-		
-				if (selectedPlan === 'monthly') {
-				  $(this).html(`$${monthly} <sub>/month</sub>`);
-				} else {
-				  $(this).html(`$${yearly} <sub>/year</sub>`);
-				}
-			  });
-			});
-		});
-
+		}		
+    });
 	
 	/*==========================================
 		AOS Animation
