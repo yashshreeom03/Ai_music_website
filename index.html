@@ -54,7 +54,39 @@
 			<div class="grid-line-5"></div>
 		</div>
 		<!-- End Grid Lines Area -->
-	
+  
+		<!-- Modal -->
+		<div class="auth-modal" id="authModal">
+			<div class="auth-modal-dialog">
+				<div class="auth-box">
+					<h4>Welcome</h4>
+					<div class="tab-buttons">
+						<button id="loginTab" class="tab-btn active">Log in</button>
+						<button id="signupTab" class="tab-btn">Sign up</button>
+					</div>
+			
+					<!-- Login Form -->
+					<form class="form-content login-form active">
+						<p class="text">Enter your email below to create an account on Song.AI</p>
+						<input type="email" placeholder="Enter Your Email" required>
+						<input type="password" placeholder="Password" required>
+						<button type="submit" class="submit-btn primary-btn">Log In</button>
+						<p>Don’t have an account? <a href="#" id="switchToSignup">Sign up</a></p>
+					</form>
+				
+					<!-- Signup Form -->
+					<form class="form-content signup-form">
+						<p class="text">Enter your email below to create an account on Song.AI</p>
+						<input type="email" placeholder="Enter Your Email" required>
+						<input type="password" placeholder="Password" required>
+						<input type="password" placeholder="Confirm Password" required>
+						<button class="submit-btn primary-btn" type="submit">Create Account</button>
+						<p>Already have an account? <a href="#" id="switchToLogin">Log in</a></p>
+					</form>
+				</div>
+			</div>
+		</div>
+  
 		<!-- Start Header Area -->
 		<header class="header-area">
 			<div class="container">
@@ -87,15 +119,15 @@
 									</ul>                        
 								</nav>
 								<div class="main-menu-btn d-block d-xl-none text-center">
-									<a href="#">Log In</a>
-									<a href="#" class="primary-btn">Sign Up</a>
+									<a href="#" class="open-login">Log In</a>
+									<a href="#" class="open-signup primary-btn">Sign Up</a>
 								</div>
 							</div>
 							<!-- Nav Right Item -->
 							<div class="nav-right-item">						
 								<div class="main-menu-btn d-none d-xl-block">
-									<a href="#">Log In</a>
-									<a href="#" class="primary-btn sign-up">Sign Up</a>
+									<a href="#" class="open-login">Log In</a>
+									<a href="#" class="open-signup primary-btn sign-up">Sign Up</a>
 								</div>
 								<button class="menu-toggle d-xl-none"><i class="far fa-bars"></i></button>
 							</div>						

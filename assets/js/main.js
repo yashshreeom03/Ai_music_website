@@ -289,3 +289,40 @@ Version: 1.0
 })(window.jQuery);
 
 
+$(function () {
+	const $modal = $('#authModal');
+	const $body = $('body');
+
+	function setActiveTab(tab) {
+		$('#loginTab, #signupTab').removeClass('active');
+		$('.login-form, .signup-form').removeClass('active');
+
+		if (tab === 'login') {
+			$('#loginTab').addClass('active');
+			$('.login-form').addClass('active');
+		} else {
+			$('#signupTab').addClass('active');
+			$('.signup-form').addClass('active');
+		}
+	}
+
+	function showModal(tab) {
+		$modal.fadeIn();
+		$body.addClass('no-scroll');
+		setActiveTab(tab);
+	}
+
+	$('.open-login').on('click', e => { e.preventDefault(); showModal('login'); });
+	$('.open-signup').on('click', e => { e.preventDefault(); showModal('signup'); });
+
+	$('#loginTab, #switchToLogin').on('click', e => { e.preventDefault(); setActiveTab('login'); });
+	$('#signupTab, #switchToSignup').on('click', e => { e.preventDefault(); setActiveTab('signup'); });
+
+	$modal.on('click', e => {
+		if ($(e.target).is($modal)) {
+			$modal.fadeOut();
+			$body.removeClass('no-scroll');
+		}
+	});
+});
+
